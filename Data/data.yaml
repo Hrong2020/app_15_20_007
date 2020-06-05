@@ -1,0 +1,67 @@
+#name: "lili" # 冒号必须是英文格式，每个冒号后必须跟空格
+#Name: "nana"  # 大小写敏感
+
+# ---对象---
+#可以写入Python的字典类型数据当做某个yaml的key的值
+#data: {"name":"lili", "pwd":"1234"}
+#
+## 相同层级元素 左对齐
+#data1:
+#  name: "lili"
+#  pwd: "1234"
+#
+
+# ---数组---
+#yaml文件-格式
+#data2:
+#  - "lili" # 短横线+空格+列表需要存储值
+#  - "nana"
+##Python-格式
+#data3: ["123","456"]
+
+
+# {"key":[{key:value},{key:value}]}-Jason
+#data4:
+#  - name: "lili"
+#  - pwd: "1234"
+
+# ---纯量---
+#字符串 -特殊情况 会在工作中看到 自动转换一部分数据类型
+#name: lili
+##布尔 -yaml格式
+#bool1: true
+#bool2: false
+##布尔 -Python格式
+#bool3: True
+#bool4: False
+##整数  浮点数
+#int1: 122
+#float1: 12.000023
+
+## 空类型
+## yaml
+#data8: ~
+## Python  不支持
+#data9: None
+#data10: none
+#data11: null
+#data12: Null
+#data13:
+
+## 日期类型
+#date1: 2020-11-11 12:12:12  # 返回Python类型为:datetime.datetime
+#data2: 2020-11-11  # 返回Python类型为: datetime.date
+#data3: 12:12:12  # 如果需要时分秒 尽量以字符串形式编写
+## 特殊日期类型 月 日 时分秒 为个位数
+#data4: 2020-06-02 02:02:02  # 当某个位置为个位数时需要在前面补0
+#data5: 2020-6-2 2:2:2
+
+
+
+info: &data
+  name: "lili"
+  phone: "13777778888"
+
+addr:
+  <<: *data
+  detail: "航都路18号"
